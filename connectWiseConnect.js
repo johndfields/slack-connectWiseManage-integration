@@ -3,8 +3,9 @@ const fetch = require('node-fetch');
 const Users = require('./Models/Users.json');
 
 // create http GET request to get ticket notes
+// Can get up to the last 100 notes
 async function getConnectWiseData(ticketNum) { 
-    var cwURL = `https://api-na.myconnectwise.net/v4_6_release/apis/3.0/service/tickets/${ticketNum}/notes`;
+    var cwURL = `https://api-na.myconnectwise.net/v4_6_release/apis/3.0/service/tickets/${ticketNum}/notes?pageSize=100`;
     var cwToken = '{YOUR TOKEN HERE}';
 
     let mostRecentNote = await fetch(cwURL, {
