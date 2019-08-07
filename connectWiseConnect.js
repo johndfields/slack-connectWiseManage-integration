@@ -39,8 +39,8 @@ async function sendConnectWise(slackUser, ticketNum, noteForTicket) {
                 "resolutionFlag": false,
                 "member": {
                   "identifier": cwUser,
-                  "_info": {"updatedBy": cwUser}
-                }
+                },
+                "processNotifications":true,
           }),
         headers: {
             'Authorization' : 'Basic ' + cwToken,
