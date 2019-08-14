@@ -12,10 +12,13 @@ async function getConnectWiseData(ticketNum) {
         method: 'GET',
         headers: {
             'Authorization' : 'Basic ' + cwToken,
-            'Content-Type':'application/json'
+            'Content-Type':'application/json',
+            'clientId': '{YOUR CLIENTID}'
         },
     }).then((request) => {
         return request.json();
+    }).catch((err) => {     
+        console.log(err)
     });
     
     let ticketLength = mostRecentNote.length-1;
@@ -44,7 +47,8 @@ async function sendConnectWise(slackUser, ticketNum, noteForTicket) {
           }),
         headers: {
             'Authorization' : 'Basic ' + cwToken,
-            'Content-Type':'application/json'
+            'Content-Type':'application/json',
+            'clientId': '{YOUR CLIENTID}'
         },
     }).then((response) => {
         return response.text()
